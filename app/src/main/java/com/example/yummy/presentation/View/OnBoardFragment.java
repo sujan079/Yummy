@@ -37,6 +37,8 @@ public class OnBoardFragment extends Fragment implements View.OnClickListener {
     private ViewPager2 onBoardViewPager;
     private LinearLayout indicatorLinearLayout;
 
+    private Button onBoardButton;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,6 +52,8 @@ public class OnBoardFragment extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
 
         Common.setStatusBarColor(getActivity(), ContextCompat.getColor(getActivity(), R.color.white), true);
+
+        onBoardButton = view.findViewById(R.id.btn_onboard);
 
         navController = Navigation.findNavController(view);
 
@@ -68,7 +72,7 @@ public class OnBoardFragment extends Fragment implements View.OnClickListener {
         });
 
         view.findViewById(R.id.btn_skip).setOnClickListener(this);
-        view.findViewById(R.id.btn_onboard).setOnClickListener(this);
+        onBoardButton.setOnClickListener(this);
 
 
     }
@@ -126,8 +130,15 @@ public class OnBoardFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case (R.id.btn_onboard):
+                if (onBoardViewPager.getCurrentItem() == onBoardAdapter.getItemCount()-1) {
+                    navController.navigate(R.id.action_onBoardFragment_to_getStartedFragment);
+                } else {
+                    onBoardViewPager.setCurrentItem(onBoardViewPager.getCurrentItem() + 1);
+
+                }
                 break;
             case R.id.btn_skip:
+                navController.navigate(R.id.action_onBoardFragment_to_getStartedFragment);
                 break;
         }
     }

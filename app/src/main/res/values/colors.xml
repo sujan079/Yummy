@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary"></color>
+    <color name="colorPrimaryDark"></color>
+    <color name="colorAccent"></color>
+
+    <color name="white">#FFF</color>
+
+    <color name="primary_color_main">#FC4041</color>
+    <color name="primary_color_light">#ff776d</color>
+    <color name="h1_color">#404355</color>
+    <color name="h2_color">#5D6275</color>
+    <color name="h3_color">#2D2D2D</color>
+    <color name="h4_color">#5D6275</color>
+    <color name="h5_color">#2D2D2D</color>
+</resources>

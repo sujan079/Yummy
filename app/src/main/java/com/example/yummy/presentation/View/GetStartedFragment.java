@@ -19,7 +19,7 @@ import com.example.yummy.presentation.Utils.Common;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class GetStartedFragment extends Fragment {
+public class GetStartedFragment extends Fragment implements View.OnClickListener {
 
     private NavController navController;
 
@@ -36,5 +36,20 @@ public class GetStartedFragment extends Fragment {
         navController = Navigation.findNavController(view);
 
         Common.setStatusBarColor(getActivity(), ContextCompat.getColor(getActivity(), R.color.white), true);
+
+        view.findViewById(R.id.btn_sign_in).setOnClickListener(this);
+        view.findViewById(R.id.btn_sign_up).setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_sign_up:
+                navController.navigate(R.id.action_getStartedFragment_to_signUpFragment);
+                break;
+            case R.id.btn_sign_in:
+                navController.navigate(R.id.action_getStartedFragment_to_signInFragment);
+                break;
+        }
     }
 }

@@ -1,4 +1,4 @@
-package com.example.yummy.presentation.View;
+package com.example.yummy.ui.View.auth;
 
 import android.os.Bundle;
 

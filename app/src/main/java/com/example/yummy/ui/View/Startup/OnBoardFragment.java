@@ -1,4 +1,4 @@
-package com.example.yummy.presentation.View;
+package com.example.yummy.ui.View.Startup;
 
 import android.os.Bundle;
 
@@ -8,23 +8,19 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.yummy.R;
 import com.example.yummy.data.model.OnBoardModel;
-import com.example.yummy.presentation.Adapter.OnBoardAdapter;
-import com.example.yummy.presentation.Utils.Common;
+import com.example.yummy.ui.Adapter.OnBoardAdapter;
+import com.example.yummy.ui.Utils.Common;
 
 import java.util.ArrayList;
 
@@ -58,7 +54,7 @@ public class OnBoardFragment extends Fragment implements View.OnClickListener {
         navController = Navigation.findNavController(view);
 
 
-        setOnBoardData(view);
+        setOnBoardData(view, OnBoardModel.getOnBoardItems());
         setOnBoardIndicator(view);
         setCurrentIndicator(0);
 
@@ -77,11 +73,11 @@ public class OnBoardFragment extends Fragment implements View.OnClickListener {
 
     }
 
-    public void setOnBoardData(View view) {
+    public void setOnBoardData(View view, ArrayList<OnBoardModel> onBoardModelItems) {
 
         onBoardViewPager = view.findViewById(R.id.on_board_view_pager);
-        onBoardAdapter = new OnBoardAdapter(new ArrayList<OnBoardModel>());
-        onBoardAdapter.setOnBoardModels(OnBoardModel.getOnBoardItems());
+        onBoardAdapter = new OnBoardAdapter(onBoardModelItems);
+        onBoardAdapter.setOnBoardModels(onBoardModelItems);
         onBoardViewPager.setAdapter(onBoardAdapter);
     }
 
@@ -130,7 +126,7 @@ public class OnBoardFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case (R.id.btn_onboard):
-                if (onBoardViewPager.getCurrentItem() == onBoardAdapter.getItemCount()-1) {
+                if (onBoardViewPager.getCurrentItem() == onBoardAdapter.getItemCount() - 1) {
                     navController.navigate(R.id.action_onBoardFragment_to_getStartedFragment);
                 } else {
                     onBoardViewPager.setCurrentItem(onBoardViewPager.getCurrentItem() + 1);

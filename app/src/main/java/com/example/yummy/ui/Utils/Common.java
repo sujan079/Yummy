@@ -1,14 +1,9 @@
-package com.example.yummy.presentation.Utils;
+package com.example.yummy.ui.Utils;
 
 import android.app.Activity;
-import android.graphics.Color;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-
-import androidx.core.content.ContextCompat;
-
-import com.example.yummy.R;
 
 public class Common {
 

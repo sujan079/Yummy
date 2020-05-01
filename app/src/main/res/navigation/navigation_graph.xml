@@ -6,7 +6,7 @@
     app:startDestination="@id/onBoardFragment">
     <fragment
         android:id="@+id/onBoardFragment"
-        android:name="com.example.yummy.presentation.View.OnBoardFragment"
+        android:name="com.example.yummy.ui.View.Startup.OnBoardFragment"
         android:label="fragment_on_board"
         tools:layout="@layout/fragment_on_board" >
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/getStartedFragment"
-        android:name="com.example.yummy.presentation.View.GetStartedFragment"
+        android:name="com.example.yummy.ui.View.Startup.GetStartedFragment"
         android:label="fragment_get_started"
         tools:layout="@layout/fragment_get_started" >
         <action
@@ -27,13 +27,13 @@
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.example.yummy.presentation.View.SignInFragment"
+        android:name="com.example.yummy.ui.View.auth.SignInFragment"
         android:label="SignInFragment"
         tools:layout="@layout/fragment_sign_in"
         />
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.yummy.presentation.View.SignUpFragment"
+        android:name="com.example.yummy.ui.View.auth.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" />
 </navigation>

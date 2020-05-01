@@ -1,4 +1,4 @@
-package com.example.yummy.presentation.View;
+package com.example.yummy.ui.View.Startup;
 
 import android.os.Bundle;
 
@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.yummy.R;
-import com.example.yummy.presentation.Utils.Common;
+import com.example.yummy.ui.Utils.Common;
 
 /**
  * A simple {@link Fragment} subclass.

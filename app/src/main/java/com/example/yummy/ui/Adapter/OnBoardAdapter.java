@@ -1,4 +1,4 @@
-package com.example.yummy.presentation.Adapter;
+package com.example.yummy.ui.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;

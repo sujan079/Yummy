@@ -1,4 +1,4 @@
-package com.example.yummy.presentation.View;
+package com.example.yummy.ui.View.Startup;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -8,7 +8,8 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.yummy.R;
-import com.example.yummy.presentation.Utils.Common;
+import com.example.yummy.ui.Utils.Common;
+import com.example.yummy.ui.View.MainActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
 

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "892427033149",
+    "firebase_url": "https://yummy-dae68.firebaseio.com",
+    "project_id": "yummy-dae68",
+    "storage_bucket": "yummy-dae68.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892427033149:android:9bbdfa15760e106fed2854",
+        "android_client_info": {
+          "package_name": "com.example.yummy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "892427033149-jn8gaqf2b2hsi18hg95l8bphrdol3qf3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAM4zqNU1rBw8dCrWa-i3yZ1IegvQ3uxgo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "892427033149-jn8gaqf2b2hsi18hg95l8bphrdol3qf3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

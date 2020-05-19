@@ -1,89 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constrantLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="16dp"
-    tools:context=".ui.View.auth.SignUpFragment">
 
-    <TextView
-        android:id="@+id/textView2"
-        style="@style/Heading1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="@string/sign_up"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<layout>
 
-    <TextView
-        android:id="@+id/textView3"
-        style="@style/Heading5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/sign_up_desc"
-        android:textAppearance="@style/Heading5"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+    <data>
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
+        <variable
+            name="authViewModel"
+            type="com.example.yummy.ui.view.viewmodel.AuthViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/constrantLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3">
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        tools:context=".ui.view.auth.SignUpFragment">
 
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/Heading1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/round_edit_text"
-            android:ems="10"
-            android:hint="@string/email"
-            android:inputType="textPersonName" />
+            android:layout_marginTop="64dp"
+            android:text="@string/sign_up"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/round_edit_text"
-            android:drawableEnd="@drawable/ic_remove_red_eye_black_24dp"
-            android:ems="10"
-            android:hint="@string/Password"
-            android:inputType="textPassword" />
-
-        <EditText
-            android:id="@+id/editText3"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/Heading5"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="@drawable/round_edit_text"
-            android:drawableEnd="@drawable/ic_remove_red_eye_black_24dp"
-            android:ems="10"
-            android:hint="@string/Password"
-            android:inputType="textPassword" />
+            android:text="@string/sign_up_desc"
+            android:textAppearance="@style/Heading5"
+            app:layout_constraintEnd_toEndOf="@+id/textView2"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3">
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/round_button"
-        android:text="@string/sign_up"
-        android:textColor="#FFF"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/et_sign_up_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_edit_text"
+                android:ems="10"
+                android:hint="@string/email"
+                android:inputType="textPersonName"
+                android:text="@={authViewModel.email}" />
+
+            <EditText
+                android:id="@+id/et_sign_up_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/round_edit_text"
+                android:drawableEnd="@drawable/ic_remove_red_eye_black_24dp"
+                android:ems="10"
+
+                android:hint="@string/Password"
+
+                android:inputType="textPassword"
+                android:text="@={authViewModel.password}" />
+
+            <EditText
+                android:id="@+id/et_sign_up_pass2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/round_edit_text"
+                android:drawableEnd="@drawable/ic_remove_red_eye_black_24dp"
+                android:ems="10"
+
+                android:hint="@string/re_password"
+
+                android:inputType="textPassword"
+                android:text="@={authViewModel.password2}" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_sign_up"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/round_button"
+            android:text="@string/sign_up"
+            android:textColor="#FFF"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout3"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

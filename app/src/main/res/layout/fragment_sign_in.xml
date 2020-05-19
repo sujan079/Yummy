@@ -3,7 +3,12 @@
 
 <layout>
 
+    <data>
 
+        <variable
+            name="authViewModel"
+            type="com.example.yummy.ui.view.viewmodel.AuthViewModel" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -11,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="16dp"
-        tools:context=".ui.View.auth.SignUpFragment">
+        tools:context=".ui.view.auth.SignUpFragment">
 
         <TextView
             android:id="@+id/textView2"
@@ -57,19 +62,21 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/et_sign_in_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/round_edit_text"
                 android:ems="10"
+                android:text="@={authViewModel.email}"
                 android:hint="@string/email"
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/et_sign_up_pass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:text="@={authViewModel.password}"
                 android:background="@drawable/round_edit_text"
                 android:drawableEnd="@drawable/ic_remove_red_eye_black_24dp"
                 android:ems="10"
@@ -77,7 +84,7 @@
                 android:inputType="textPassword" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/btn_forget_pass"
                 style="@style/Heading4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,7 +94,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btn_sign_in"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

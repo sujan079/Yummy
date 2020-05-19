@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/onBoardFragment">
+    app:startDestination="@id/splashScreenFragment">
     <fragment
         android:id="@+id/onBoardFragment"
-        android:name="com.example.yummy.ui.View.Startup.OnBoardFragment"
+        android:name="com.example.yummy.ui.view.Startup.OnBoardFragment"
         android:label="fragment_on_board"
         tools:layout="@layout/fragment_on_board" >
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/getStartedFragment"
-        android:name="com.example.yummy.ui.View.Startup.GetStartedFragment"
+        android:name="com.example.yummy.ui.view.auth.GetStartedFragment"
         android:label="fragment_get_started"
         tools:layout="@layout/fragment_get_started" >
         <action
@@ -24,16 +24,45 @@
         <action
             android:id="@+id/action_getStartedFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_getStartedFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.example.yummy.ui.View.auth.SignInFragment"
+        android:name="com.example.yummy.ui.view.auth.SignInFragment"
         android:label="SignInFragment"
         tools:layout="@layout/fragment_sign_in"
-        />
+        >
+        <action
+            android:id="@+id/action_signInFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.yummy.ui.View.auth.SignUpFragment"
+        android:name="com.example.yummy.ui.view.auth.SignUpFragment"
         android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" />
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.yummy.ui.view.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.example.yummy.ui.view.Startup.SplashScreenFragment"
+        android:label="SplashScreenFragment"
+        tools:layout="@layout/fragment_splash_screen"
+        >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_onBoardFragment"
+            app:destination="@id/onBoardFragment" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

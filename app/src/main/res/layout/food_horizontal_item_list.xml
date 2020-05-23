@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="product"
+            type="com.example.yummy.data.model.Product" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/round_edit_text"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/iv_food_item"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{product.imgId}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/food2" />
+
+        <TextView
+            android:id="@+id/tv_food_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{product.name}"
+            android:textAppearance="@style/Heading2"
+            app:layout_constraintStart_toEndOf="@+id/iv_food_item"
+            app:layout_constraintTop_toTopOf="@+id/iv_food_item"
+            tools:text="Taco" />
+
+        <TextView
+            android:id="@+id/tv_food_item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{String.valueOf(product.price)}"
+
+            android:textAppearance="@style/Heading4"
+            app:layout_constraintStart_toStartOf="@+id/tv_food_item_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_food_item_name"
+            tools:text="99.99" />
+
+        <RatingBar
+            android:id="@+id/rb_food_rating"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
+
+            android:numStars="5"
+            android:rating="@{product.rating}"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_food_item"
+            app:layout_constraintStart_toStartOf="@+id/tv_food_item_price"
+            app:layout_constraintTop_toBottomOf="@+id/tv_food_item_price" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

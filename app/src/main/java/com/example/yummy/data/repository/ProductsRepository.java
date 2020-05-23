@@ -4,10 +4,13 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.yummy.data.model.Product;
 import com.example.yummy.data.model.ProductCategory;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
 public class ProductsRepository {
+
 
 
     public MutableLiveData<ArrayList<ProductCategory>> getProductCategories() {
@@ -22,5 +25,7 @@ public class ProductsRepository {
         product.setValue(Product.getProducts());
         return product;
     }
+
+
 
 }

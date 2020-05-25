@@ -1,6 +1,12 @@
 package com.example.yummy.ui.view.Startup;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,17 +16,11 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-
 import com.example.yummy.R;
 import com.example.yummy.data.model.OnBoardModel;
 import com.example.yummy.ui.adapter.OnBoardAdapter;
 import com.example.yummy.ui.utils.Common;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -35,12 +35,19 @@ public class OnBoardFragment extends Fragment implements View.OnClickListener {
 
     private Button onBoardButton;
 
+    private FirebaseAuth firebaseAuth;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        firebaseAuth = FirebaseAuth.getInstance();
+
+
         return inflater.inflate(R.layout.fragment_on_board, container, false);
+
     }
 
     @Override
@@ -52,6 +59,10 @@ public class OnBoardFragment extends Fragment implements View.OnClickListener {
         onBoardButton = view.findViewById(R.id.btn_onboard);
 
         navController = Navigation.findNavController(view);
+
+        if (firebaseAuth.getCurrentUser() != null) {
+            navController.navigate(R.id.action_onBoardFragment_to_homeFragment);
+        }
 
 
         setOnBoardData(view, OnBoardModel.getOnBoardItems());

@@ -23,6 +23,7 @@ import com.example.yummy.ui.adapter.ProductCategoryAdapter;
 import com.example.yummy.ui.adapter.ProductsItemAdapter;
 import com.example.yummy.ui.utils.Common;
 import com.example.yummy.ui.view.viewmodel.HomeViewModel;
+import com.example.yummy.ui.view.viewmodel.MainActivityViewModel;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -33,6 +34,7 @@ public class HomeFragment extends Fragment implements HomeActionListener {
 
     private FragmentHomeBinding fragmentHomeBinding;
     private HomeViewModel homeViewModel;
+    private MainActivityViewModel activityViewModel;
 
     private ProductCategoryAdapter categoryAdapter;
     private RecyclerView.LayoutManager categoryLayoutManager;
@@ -62,8 +64,10 @@ public class HomeFragment extends Fragment implements HomeActionListener {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-
+        activityViewModel = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
         navController = Navigation.findNavController(Objects.requireNonNull(getView()));
+
+        activityViewModel.showBottomNavigation.setValue(true);
 
         initGreetingData();
         initProductCategory();

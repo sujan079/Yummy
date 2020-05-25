@@ -3,22 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menu_home"
+        android:id="@id/homeFragment"
         android:icon="@drawable/home_line"
         android:title="Home"
         app:showAsAction="always" />
     <item
-        android:id="@+id/menu_near_by"
+        android:id="@id/nearByFragment"
         android:icon="@drawable/focus_line"
         android:title="Near By"
         app:showAsAction="always" />
     <item
-        android:id="@+id/menu_cart"
+        android:id="@id/cartFragment"
         android:icon="@drawable/shopping_bag_2_line"
         android:title="Cart"
         app:showAsAction="always" />
     <item
-        android:id="@+id/menu_account"
+        android:id="@id/userFragment"
         android:icon="@drawable/user_line"
         android:title="Account"
         app:showAsAction="always" />

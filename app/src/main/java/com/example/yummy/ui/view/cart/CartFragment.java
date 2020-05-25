@@ -10,9 +10,7 @@ import android.view.ViewGroup;
 
 import com.example.yummy.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class CartFragment extends Fragment {
 
     public CartFragment() {

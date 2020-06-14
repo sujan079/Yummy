@@ -22,9 +22,10 @@ import com.example.yummy.ui.view.viewmodel.CartItemViewModel;
 import com.example.yummy.ui.view.viewmodel.MainActivityViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
-public class CartFragment extends Fragment {
+public class CartFragment extends Fragment implements CartItemActionListner {
 
     private FragmentCartBinding cartBinding;
     private CartItemViewModel cartItemViewModel;
@@ -58,20 +59,42 @@ public class CartFragment extends Fragment {
 
     private void initCartItems() {
         cartItemsAdapter = new CartItemsAdapter();
+        cartItemsAdapter.setCartItemActionListner(this);
         cartLayoutManger = new LinearLayoutManager(getContext());
 
         cartBinding.rvCartItems.setAdapter(cartItemsAdapter);
         cartBinding.rvCartItems.setLayoutManager(cartLayoutManger);
 
+
         cartItemViewModel.getCartItems();
 
-        cartItemViewModel.cartItems.observe(this, new Observer<ArrayList<CartItem>>() {
+        cartItemViewModel.cartItems.observe(this, new Observer<List<CartItem>>() {
             @Override
-            public void onChanged(ArrayList<CartItem> cartItems) {
-                cartItemsAdapter.setCartItems(cartItems);
-                cartItemsAdapter.notifyDataSetChanged();
+            public void onChanged(List<CartItem> cartItems) {
+                ArrayList<CartItem> cartItemArrayList = (ArrayList<CartItem>) cartItems;
+                if (cartItemArrayList != null) {
+                    cartItemsAdapter.setCartItems(cartItemArrayList);
+                    cartItemsAdapter.notifyDataSetChanged();
+                }
+
             }
         });
+
+    }
+
+    @Override
+    public void increase(CartItem cartItem) {
+        cartItemViewModel.updateItem(cartItem);
+        cartItemViewModel.getCartItems();
+    }
+
+    @Override
+    public void decrease(CartItem cartItem) {
+        if (cartItem.getQuantity() <= 0)
+            cartItemViewModel.delete(cartItem);
+        cartItemViewModel.updateItem(cartItem);
+
+        cartItemViewModel.getCartItems();
 
     }
 }

@@ -18,7 +18,7 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView5"
-            imageUrl="@{cartItem.product.imgId}"
+            imageUrl="@{cartItem.product_image}"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginTop="8dp"
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="@{cartItem.product.name}"
+            android:text="@{cartItem.itemName}"
             android:textAppearance="@style/Heading2"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageView5"
@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@{String.valueOf(cartItem.product.price)}"
+            android:text="@{String.valueOf(cartItem.price)}"
             android:textAppearance="@style/Heading3"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/textView9"
@@ -61,12 +61,12 @@
             android:text="@{String.valueOf(cartItem.quantity)}"
             android:textAppearance="@style/Heading2"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView6"
+            app:layout_constraintEnd_toStartOf="@+id/btn_add"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageView7" />
+            app:layout_constraintStart_toEndOf="@+id/btn_remove" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/btn_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -79,7 +79,7 @@
             app:srcCompat="@drawable/ic_add_line" />
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/btn_remove"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

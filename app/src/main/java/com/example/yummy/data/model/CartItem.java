@@ -1,23 +1,49 @@
 package com.example.yummy.data.model;
 
-import java.util.ArrayList;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
+@Entity(tableName = "cart")
 public class CartItem {
 
-    private Product product;
+    @PrimaryKey(autoGenerate = true)
+    int id;
+
+    private String itemName;
+    private Double price;
+
     private int quantity;
+    private String product_image;
 
-    public CartItem(Product product, int quantity) {
-        this.product = product;
+    public CartItem(String itemName, Double price, int quantity, String product_image) {
+        this.itemName = itemName;
+        this.price = price;
         this.quantity = quantity;
+        this.product_image = product_image;
     }
 
-    public Product getProduct() {
-        return product;
+    public int getId() {
+        return id;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public int getQuantity() {
@@ -28,11 +54,11 @@ public class CartItem {
         this.quantity = quantity;
     }
 
-    public static ArrayList<CartItem> getCartItems() {
-        return new ArrayList<CartItem>() {{
-            for (int i = 0; i < Product.getProducts().size(); i++) {
-                add(new CartItem(Product.getProducts().get(i), i));
-            }
-        }};
+    public String getProduct_image() {
+        return product_image;
+    }
+
+    public void setProduct_image(String product_image) {
+        this.product_image = product_image;
     }
 }

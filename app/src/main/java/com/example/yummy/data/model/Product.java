@@ -3,25 +3,38 @@ package com.example.yummy.data.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.example.yummy.R;
 
 import java.util.ArrayList;
 
 public class Product implements Parcelable {
 
-    String name, description, url;
+
+    String name;
+
+    String description;
+
+    String url;
+
     Double price;
+
     Float rating;
 
     Integer number_of_reviews;
     int imgId;
 
-   private String time, distance, delivery;
+    private String time, distance, delivery;
 
-    public Product() {
+
+
+
+
+    public Product(Product product){
+        this(product.getName(),product.getDescription(),product.getRating(),product.getPrice(),product.getNumber_of_reviews(),product.getImgId(),product.getTime(),product.getDistance(),product.getDelivery());
     }
-
-
     public Product(String name, String description, Float rating, double price, Integer number_of_reviews, int imgId, String time, String distance, String delivery) {
         this.name = name;
         this.description = description;
@@ -59,6 +72,7 @@ public class Product implements Parcelable {
             add(new Product("Lunch Set", "lorem", 4.6f, 150, 100, R.drawable.on_board2,"12pm","15KM","Delivery"));
         }};
     }
+
 
 
     public String getName() {

@@ -43,7 +43,7 @@ public class AuthViewModel extends AndroidViewModel {
 
 
     public void createUser(FirebaseUser authenticatedUser) {
-        User user = new User(authenticatedUser.getUid(), authenticatedUser.getDisplayName(), authenticatedUser.getEmail());
+        User user = new User(authenticatedUser.getUid(), authenticatedUser.getDisplayName(), authenticatedUser.getEmail(), authenticatedUser.getPhotoUrl().toString());
         createdUserLiveData = authRepository.createUserInFirestoreIfNotExists(user);
     }
 

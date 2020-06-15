@@ -20,6 +20,7 @@ import com.example.yummy.R;
 import com.example.yummy.databinding.FragmentGetStartedBinding;
 import com.example.yummy.ui.utils.Common;
 import com.example.yummy.ui.view.viewmodel.AuthViewModel;
+import com.example.yummy.ui.view.viewmodel.MainActivityViewModel;
 import com.example.yummy.utils.Constants;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -38,6 +39,8 @@ public class GetStartedFragment extends Fragment implements View.OnClickListener
     private FragmentGetStartedBinding getStartedBinding;
     private AuthViewModel authViewModel;
 
+    private MainActivityViewModel mainActivityViewModel;
+
 
 
     @Override
@@ -55,6 +58,9 @@ public class GetStartedFragment extends Fragment implements View.OnClickListener
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        mainActivityViewModel = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
+        mainActivityViewModel.showBottomNavigation.setValue(false);
 
         navController = Navigation.findNavController(view);
 
@@ -122,12 +128,9 @@ public class GetStartedFragment extends Fragment implements View.OnClickListener
         authViewModel.signInWithGoogle(googleAuthCredential);
 
         authViewModel.authenticatedUserLiveData.observe(this, authUser -> {
-            if (authUser.error != null) {
-                makeText(authUser.error);
-            } else {
+
                 createUser(authUser.user);
 
-            }
         });
     }
 
@@ -135,8 +138,8 @@ public class GetStartedFragment extends Fragment implements View.OnClickListener
     private void createUser(FirebaseUser authenticatedUser) {
         authViewModel.createUser(authenticatedUser);
         authViewModel.createdUserLiveData.observe(this, user -> {
-            makeText("User Created");
             goToHome();
+            makeText("User Created");
         });
     }
 
@@ -168,6 +171,7 @@ public class GetStartedFragment extends Fragment implements View.OnClickListener
                 break;
             case R.id.btn_google_sign_up:
                 signIn();
+                break;
         }
     }
 }

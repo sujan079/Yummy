@@ -83,5 +83,9 @@
         android:id="@+id/userFragment"
         android:name="com.example.yummy.ui.view.user.UserFragment"
         android:label="fragment_user"
-        tools:layout="@layout/fragment_user" />
+        tools:layout="@layout/fragment_user" >
+        <action
+            android:id="@+id/action_userFragment_to_getStartedFragment"
+            app:destination="@id/getStartedFragment" />
+    </fragment>
 </navigation>

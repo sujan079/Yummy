@@ -44,8 +44,9 @@ dependencies {
     def room_version = "2.2.5"
 
     implementation "androidx.room:room-runtime:$room_version"
+    implementation 'com.google.firebase:firebase-storage:19.1.1'
     annotationProcessor "androidx.room:room-compiler:$room_version"
-    
+
 
     // Java language implementation
     implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
@@ -69,6 +70,7 @@ dependencies {
     implementation "androidx.viewpager2:viewpager2:1.0.0"
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    implementation 'com.google.android.gms:play-services-maps:16.1.0'
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

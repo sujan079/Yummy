@@ -56,12 +56,8 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
     public void signUpWithEmailAndPassword(String email, String password) {
         authViewModel.signUpWithEmailPassword(email, password);
         authViewModel.authenticatedUserLiveData.observe(this, authUser -> {
-            if (authUser.error != null) {
-                makeText(authUser.error);
-            } else {
-                createUser(authUser.user);
 
-            }
+                createUser(authUser.user);
         });
 
 
